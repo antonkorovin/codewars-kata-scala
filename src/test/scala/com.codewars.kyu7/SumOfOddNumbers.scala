@@ -15,7 +15,23 @@ object SumOfOddNumbers {
   // rowSumOddNumbers(2) // 3 + 5 = 8
 
   object Solution {
-    def rowSumOddNumbers(n: Long): Long = ???
+    def rowSumOddNumbers(n: Long): Long = {
+      require(n >= 1)
+
+      val first = firstInRow(n)
+      val last = lastInRow(first, n)
+
+      (first to(last, step = 2)).sum
+    }
+
+    private def firstInRow(rowNumber: Long): Long = {
+      (rowNumber * (rowNumber - 1)) + 1
+    }
+
+
+    private def lastInRow(first: Long, rowNumber: Long): Long = {
+      first + 2 * (rowNumber - 1)
+    }
   }
 
 
