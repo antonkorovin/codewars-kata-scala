@@ -12,6 +12,17 @@ object CountPositivesSumNegatives {
 
   object Kata {
     // Expects (0, 0) for empty array
-    def countPositivesSumNegatives(integers: Array[Int]): (Int, Int) = ???
+    def countPositivesSumNegatives(integers: Array[Int]): (Int, Int) = {
+      integers.foldLeft((0, 0)) {
+        case ((positives, negatives), i) =>
+          if (i < 0) {
+            (positives, negatives + i)
+          } else if (i > 0) {
+            (positives + 1, negatives)
+          } else {
+            (positives, negatives)
+          }
+      }
+    }
   }
 }
