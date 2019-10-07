@@ -4,7 +4,9 @@ object SquareNSum {
 
   object Kata {
 
-    def squareSum(xs: List[Int]): Int = ???
+    def squareSum(xs: List[Int]): Int = xs.foldLeft(0) {
+      (s, n) => s + n * n
+    }
   }
 
 }
