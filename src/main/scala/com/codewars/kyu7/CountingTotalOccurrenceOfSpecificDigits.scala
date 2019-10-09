@@ -1,5 +1,7 @@
 package com.codewars.kyu7
 
+import scala.annotation.tailrec
+
 object CountingTotalOccurrenceOfSpecificDigits {
   // We need a method in the List Class that may count specific digits
   // from a given list of integers.
@@ -16,6 +18,30 @@ object CountingTotalOccurrenceOfSpecificDigits {
 
   object Kata {
     def countSpecDigits(intsList: List[Int], digitsList: List[Int]): List[(Int, Int)] = ???
+
+    private def splitToDigits(n: Int): List[Int] = {
+
+      // ////////////////////
+
+      @tailrec
+      def splitRec(d: Int, digits: List[Int]): List[Int] = {
+        if (d == 0) {
+          if (digits.isEmpty) {
+            List(0)
+          } else {
+            digits
+          }
+        } else {
+          val nextDigit = d % 10
+
+          splitRec((d - nextDigit) / 10, nextDigit :: digits)
+        }
+      }
+
+      // ////////////////////
+
+      splitRec(n.abs, List.empty)
+    }
   }
 
 }
