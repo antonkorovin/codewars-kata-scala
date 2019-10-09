@@ -1,13 +1,13 @@
 package com.codewars.kyu7
 
+import scala.language.implicitConversions
+
 object ForcingAnOption {
 
   object Kata extends ImplicitOptionExtraction
 
 
   trait ImplicitOptionExtraction {
-
-    import scala.languageFeature.implicitConversions
 
     implicit def extractValue(t: Option[Int]): Int = {
       t match {
