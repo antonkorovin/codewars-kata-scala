@@ -4,7 +4,9 @@ object ShortestWord {
 
   object Shortest {
 
-    def findShort(str: String): Int = ???
+    def findShort(str: String): Int = {
+      str.split(' ').map(_.length).min
+    }
   }
 
 }
