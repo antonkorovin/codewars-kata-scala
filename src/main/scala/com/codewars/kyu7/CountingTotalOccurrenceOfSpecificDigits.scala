@@ -3,6 +3,7 @@ package com.codewars.kyu7
 import scala.annotation.tailrec
 
 object CountingTotalOccurrenceOfSpecificDigits {
+
   // We need a method in the List Class that may count specific digits
   // from a given list of integers.
   // This marked digits will be given in a second list.
@@ -17,7 +18,16 @@ object CountingTotalOccurrenceOfSpecificDigits {
 
 
   object Kata {
-    def countSpecDigits(intsList: List[Int], digitsList: List[Int]): List[(Int, Int)] = ???
+    def countSpecDigits(intsList: List[Int], digitsList: List[Int]): List[(Int, Int)] = {
+      val allDigits = intsList.flatMap {
+        splitToDigits
+      }
+
+      digitsList.foldLeft(List.empty[(Int, Int)]) {
+        (res, d) =>
+          (d -> allDigits.count(_ == d)) :: res
+      }.reverse
+    }
 
     private def splitToDigits(n: Int): List[Int] = {
 
