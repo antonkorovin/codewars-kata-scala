@@ -11,6 +11,6 @@ class MaximumLengthDifferenceTest extends FlatSpec with Matchers {
   val result = 13
 
   s"mxdiflg($a1, $a2)" should "return 13" in {
-    Kata.mxdiflg(a1, a2) should be (13)
+    Kata.mxdiflg(a1, a2) shouldBe 13
   }
 }
