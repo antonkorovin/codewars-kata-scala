@@ -1,5 +1,7 @@
 package com.codewars.kyu7
 
+import scala.annotation.tailrec
+
 object PartsOfAList {
 
   // Write a function partlist that gives all the ways to divide a list (an array) of at least two elements into two non-empty parts.
@@ -13,7 +15,33 @@ object PartsOfAList {
   // [["az", "toto picaro zone kiwi"], ["az toto", "picaro zone kiwi"], ["az toto picaro", "zone kiwi"], ["az toto picaro zone", "kiwi"]]
 
   object Kata {
-    def partList(xs: List[String]): List[(String, String)] = ???
+    type ResultList = List[(String, String)]
+
+    def partList(xs: List[String]): ResultList = {
+      @tailrec
+      def concatRec(previous: String, rest: List[String], result: ResultList): ResultList = {
+        rest match {
+          case head :: tail =>
+            val next = s"$previous $head"
+            concatRec(
+              next,
+              tail,
+              (previous -> rest.mkString(" ")) :: result
+            )
+
+          case Nil =>
+            result
+        }
+      }
+
+      // //////////////////////////////
+
+      concatRec(
+        xs.head,
+        xs.tail,
+        List.empty
+      ).reverse
+    }
   }
 
 }
