@@ -2,6 +2,8 @@ package com.codewars.kyu7
 
 import org.scalatest.FunSuite
 
+import scala.language.postfixOps
+
 class FactorialTest  extends FunSuite {
 
   private val Kata = Factorial.Kata
