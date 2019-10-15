@@ -16,6 +16,9 @@ object AlphabeticallyOrdered {
         s.toList.sliding(2).forall {
           case first :: second :: Nil =>
             first <= second
+
+            // Handle "match may not be exhaustive" warning
+          case _ => false
         }
       }
     }
