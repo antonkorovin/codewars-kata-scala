@@ -9,8 +9,16 @@ object AlphabeticallyOrdered {
     //
     // For example, isAlphabetic('kata') is False as 'a' comes after 'k', but isAlphabetic('ant') is True.
 
-    def isAlphabetic(s: String): Boolean = ???
-
+    def isAlphabetic(s: String): Boolean = {
+      if (s.lengthCompare(1) <= 0) {
+        true
+      } else {
+        s.toList.sliding(2).forall {
+          case first :: second :: Nil =>
+            first <= second
+        }
+      }
+    }
   }
 
 }
