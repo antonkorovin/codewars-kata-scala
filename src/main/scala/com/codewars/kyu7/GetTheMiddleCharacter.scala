@@ -9,7 +9,13 @@ object GetTheMiddleCharacter {
     // If the word's length is even, return the middle 2 characters.
 
 
-    def middle(s: String): String = ???
+    def middle(s: String): String = {
+      s.length match {
+        case n if n <= 2 => s
+        case n if n % 2 == 0 => s.slice(n / 2 - 1, n / 2 + 1)
+        case n => s.charAt(n / 2).toString
+      }
+    }
   }
 
 }
