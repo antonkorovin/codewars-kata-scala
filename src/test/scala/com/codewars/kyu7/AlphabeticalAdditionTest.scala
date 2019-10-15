@@ -4,7 +4,7 @@ import org.scalatest._
 
 class AlphabeticalAdditionTest  extends FlatSpec with Matchers {
   private val Kata = AlphabeticalAddition.Kata
-  
+
   List(
     (List('a', 'b', 'c'), 'f'),
     (List('z'), 'z'),
