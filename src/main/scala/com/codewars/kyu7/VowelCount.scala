@@ -7,8 +7,12 @@ object VowelCount {
   // The input string will only consist of lower case letters and/or spaces.
   object Kata {
     def getCount(inputStr: String): Int = {
-      // your code here
-      0
+      inputStr.count(isVowel)
+    }
+
+    private def isVowel(ch: Char): Boolean = ch match {
+      case 'a' | 'e' | 'i' | 'o' | 'u' => true
+      case _ => false
     }
   }
 
