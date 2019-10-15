@@ -9,8 +9,7 @@ object ReverseLetter {
     // For str = "ultr53o?n", the output should be "nortlu".
 
     def reverseLetter(str: String): String = {
-      // your code
-      ???
+      str.filter(ch => Character.isAlphabetic(ch)).reverse
     }
   }
 }
